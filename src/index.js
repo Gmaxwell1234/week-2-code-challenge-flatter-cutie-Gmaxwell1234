@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
     let currentCharacter = null;
 
-    // Fetch and display character names
     fetch(baseURL)
         .then(response => response.json())
         .then(characters => {
@@ -34,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
         voteCount.textContent = character.votes;
     }
 
-    // Handle votes submission
     votesForm.addEventListener("submit", event => {
         event.preventDefault();
         if (!currentCharacter) return;
@@ -48,14 +46,12 @@ document.addEventListener("DOMContentLoaded", () => {
         votesInput.value = "";
     });
 
-    // Reset votes to 0
+
     resetBtn.addEventListener("click", () => {
         if (!currentCharacter) return;
         currentCharacter.votes = 0;
         voteCount.textContent = 0;
     });
-
-    // Bonus: Add a new character
     if (characterForm) {
         characterForm.addEventListener("submit", event => {
             event.preventDefault();
